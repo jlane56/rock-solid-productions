@@ -232,7 +232,7 @@ ul  { list-style: none; }
 .hero__bg {
     position: absolute;
     inset: 0;
-    background-image: url('../images/hero.jpg');
+    background-image: url('/images/hero.jpg');
     background-size: cover;
     background-position: center 30%;
     background-color: #1c1c1c;
@@ -257,9 +257,9 @@ ul  { list-style: none; }
     inset: 0;
     background: linear-gradient(
         150deg,
-        rgba(0,0,0,0.72) 0%,
-        rgba(0,0,0,0.45) 55%,
-        rgba(0,0,0,0.65) 100%
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.3) 55%,
+        rgba(0,0,0,0.5) 100%
     );
 }
 
