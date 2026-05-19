@@ -228,15 +228,20 @@ ul  { list-style: none; }
     overflow: hidden;
 }
 
-/* Drop your hero photo at images/hero.jpg */
 .hero__bg {
     position: absolute;
     inset: 0;
-    background-image: url('/images/hero.jpg');
-    background-size: cover;
-    background-position: center 30%;
+    overflow: hidden;
     background-color: #1c1c1c;
     animation: heroZoom 12s ease-out forwards;
+}
+
+.hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
 }
 
 /* Uncomment when using video instead of photo */
