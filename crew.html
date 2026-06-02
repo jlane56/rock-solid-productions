@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Portal | Rock Solid Productions</title>
+    <meta name="description" content="Crew login and event dashboard for Rock Solid Productions team members.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="crew-body">
+    <nav class="nav nav--portal scrolled" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-mark">RSP</span>
+                <span class="nav__logo-text">Rock Solid Productions</span>
+            </a>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#work">Our Work</a></li>
+                <li><a href="crew.html">Crew Login</a></li>
+                <li><a href="index.html#contact" class="nav__cta">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="crew-shell">
+        <section class="crew-login" aria-labelledby="crewLoginTitle">
+            <div class="crew-login__media">
+                <img src="images/hero-bg.jpg" alt="Concert lighting and production environment">
+                <div class="crew-login__shade"></div>
+                <div class="crew-login__copy">
+                    <p class="section-label">Team Access</p>
+                    <h1 id="crewLoginTitle">Every gig detail, in one place.</h1>
+                    <p>Schedules, call times, venue notes, files, contacts, and calendar links for the people running the show.</p>
+                </div>
+            </div>
+
+            <form class="crew-login__panel" id="crewLoginForm">
+                <span class="crew-login__eyebrow">Employee Portal</span>
+                <h2>Sign in to your call sheet.</h2>
+                <div class="form-group">
+                    <label for="crewEmail">Email</label>
+                    <input type="email" id="crewEmail" name="crewEmail" placeholder="crew@bookrsproductions.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="crewPassword">Password</label>
+                    <input type="password" id="crewPassword" name="crewPassword" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">View My Gigs</button>
+                <p class="crew-login__hint">Demo mode: any email and password will open the portal preview.</p>
+            </form>
+        </section>
+
+        <section class="crew-dashboard" id="crewDashboard" aria-label="Crew dashboard">
+            <aside class="crew-sidebar">
+                <div class="crew-sidebar__brand">
+                    <span class="footer__logo-mark">RSP</span>
+                    <p>Crew Ops</p>
+                </div>
+                <nav class="crew-sidebar__nav" aria-label="Portal sections">
+                    <a href="#overview" class="active">Overview</a>
+                    <a href="#schedule">Schedule</a>
+                    <a href="#documents">Documents</a>
+                    <a href="#contacts">Contacts</a>
+                </nav>
+                <div class="crew-sidebar__profile">
+                    <span class="crew-avatar">JL</span>
+                    <div>
+                        <strong>Justin Lane</strong>
+                        <span>Audio Tech</span>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="crew-main">
+                <header class="crew-main__header" id="overview">
+                    <div>
+                        <p class="section-label">Next Assignment</p>
+                        <h2>Dunlap Summer Kickoff</h2>
+                        <p class="crew-main__meta">Saturday, June 13 · 2:00 PM crew call · North Park Bandshell</p>
+                    </div>
+                    <div class="crew-main__actions">
+                        <button class="btn btn--outline" id="copyBriefBtn" type="button">Copy Brief</button>
+                        <button class="btn btn--primary" id="calendarBtn" type="button">Add to Calendar</button>
+                    </div>
+                </header>
+
+                <div class="crew-alert">
+                    <strong>Production note</strong>
+                    <span>Rain plan is active. Bring cable ramps, extra towels, pop-up sidewalls, and outdoor-rated distros.</span>
+                </div>
+
+                <div class="crew-grid">
+                    <article class="crew-card crew-card--wide">
+                        <div class="crew-card__header">
+                            <span>Event Snapshot</span>
+                            <strong>Live Production</strong>
+                        </div>
+                        <div class="crew-stats">
+                            <div>
+                                <span>Call</span>
+                                <strong>2:00 PM</strong>
+                            </div>
+                            <div>
+                                <span>Doors</span>
+                                <strong>5:30 PM</strong>
+                            </div>
+                            <div>
+                                <span>Show</span>
+                                <strong>6:00 PM</strong>
+                            </div>
+                            <div>
+                                <span>Strike</span>
+                                <strong>9:45 PM</strong>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="crew-card">
+                        <div class="crew-card__header">
+                            <span>Your Role</span>
+                            <strong>Stage Audio</strong>
+                        </div>
+                        <p>Patch stage inputs, label subsnakes, assist monitor world, and verify RF scan before doors.</p>
+                    </article>
+
+                    <article class="crew-card">
+                        <div class="crew-card__header">
+                            <span>Location</span>
+                            <strong>North Park Bandshell</strong>
+                        </div>
+                        <p>Load-in through service gate B. Park crew vehicles behind the concession building after unload.</p>
+                    </article>
+                </div>
+
+                <section class="crew-section" id="schedule">
+                    <div class="crew-section__head">
+                        <p class="section-label">Run of Show</p>
+                        <h3>Timeline</h3>
+                    </div>
+                    <ol class="timeline">
+                        <li><time>2:00 PM</time><span>Crew call, unload, stage plot review</span></li>
+                        <li><time>3:15 PM</time><span>PA fly, power distro, cable paths</span></li>
+                        <li><time>4:20 PM</time><span>Line check, RF scan, lighting focus</span></li>
+                        <li><time>5:30 PM</time><span>Doors and house music</span></li>
+                        <li><time>6:00 PM</time><span>Opening band</span></li>
+                        <li><time>7:30 PM</time><span>Headliner</span></li>
+                        <li><time>9:45 PM</time><span>Strike and truck pack</span></li>
+                    </ol>
+                </section>
+
+                <div class="crew-grid crew-grid--lower">
+                    <section class="crew-section" id="documents">
+                        <div class="crew-section__head">
+                            <p class="section-label">Files</p>
+                            <h3>Gig Documents</h3>
+                        </div>
+                        <div class="doc-list">
+                            <a href="#">Stage plot · PDF</a>
+                            <a href="#">Input list · Sheet</a>
+                            <a href="#">Venue map · PDF</a>
+                            <a href="#">Truck pack · Checklist</a>
+                        </div>
+                    </section>
+
+                    <section class="crew-section" id="contacts">
+                        <div class="crew-section__head">
+                            <p class="section-label">Contacts</p>
+                            <h3>Key People</h3>
+                        </div>
+                        <div class="contact-list">
+                            <div><strong>Production Lead</strong><a href="tel:3093230011">309-323-0011</a></div>
+                            <div><strong>Venue Manager</strong><a href="mailto:venue@example.com">venue@example.com</a></div>
+                            <div><strong>Artist Advance</strong><a href="mailto:advance@example.com">advance@example.com</a></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
