@@ -28,6 +28,7 @@ export default async function CrewPage() {
           <a href="#schedule">Schedule</a>
           <a href="#documents">Documents</a>
           <a href="#contacts">Contacts</a>
+          <a href="/admin">Admin</a>
         </nav>
         <div className="crew-profile">
           {clerkEnabled ? <UserButton afterSignOutUrl="/" /> : <span className="demo-avatar">RS</span>}

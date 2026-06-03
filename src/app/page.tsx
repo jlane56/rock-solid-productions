@@ -7,6 +7,7 @@ export default function HomePage() {
         </a>
         <div>
           <a href="/crew">Crew Login</a>
+          <a href="/admin">Admin</a>
           <a className="nav-cta" href="mailto:info@bookrsproductions.com">
             Book Now
           </a>
