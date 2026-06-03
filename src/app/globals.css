@@ -549,6 +549,69 @@ a {
   margin-top: 0.1rem;
 }
 
+@media print {
+  :root {
+    --black: #ffffff;
+    --panel: #ffffff;
+    --panel-2: #ffffff;
+    --line: #d7d7d7;
+    --muted: #333333;
+    --soft: #555555;
+    --white: #000000;
+    --accent: #000000;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .no-print,
+  .crew-rail,
+  .marketing-nav {
+    display: none !important;
+  }
+
+  .crew-app {
+    display: block;
+  }
+
+  .crew-workspace {
+    padding: 0;
+  }
+
+  .crew-header {
+    align-items: flex-start;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 1rem;
+  }
+
+  .crew-header h1 {
+    font-size: 40pt;
+  }
+
+  .notice,
+  .panel,
+  .stat-grid div {
+    background: #ffffff;
+    border: 1px solid #d7d7d7;
+    box-shadow: none;
+  }
+
+  .content-grid,
+  .stat-grid {
+    break-inside: avoid;
+  }
+
+  .button {
+    display: none;
+  }
+
+  a {
+    color: #000000;
+  }
+}
+
 @media (max-width: 960px) {
   .crew-app {
     grid-template-columns: 1fr;

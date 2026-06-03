@@ -10,6 +10,7 @@ import {
   createGigDocument,
   createTimelineItem
 } from "./actions";
+import { ClerkUserFields } from "./ClerkUserFields";
 
 export const dynamic = "force-dynamic";
 
@@ -50,6 +51,7 @@ export default async function AdminPage() {
   const firstGig = adminData.gigs[0];
   const hasGigs = adminData.gigs.length > 0;
   const hasCrew = adminData.crew.length > 0;
+  const hasAvailableClerkUsers = adminData.availableClerkUsers.length > 0;
 
   return (
     <main className="crew-app admin-app">
@@ -183,14 +185,7 @@ export default async function AdminPage() {
               <h2>Add Crew</h2>
             </div>
             <form action={createCrewProfile} className="admin-form">
-              <label>
-                Clerk User ID
-                <input name="clerk_user_id" placeholder="user_..." required />
-              </label>
-              <label>
-                Name
-                <input name="full_name" placeholder="Crew member name" required />
-              </label>
+              <ClerkUserFields users={adminData.availableClerkUsers} />
               <label>
                 Default Role
                 <input name="default_role" placeholder="Audio Tech" required />
@@ -199,12 +194,12 @@ export default async function AdminPage() {
                 Phone
                 <input name="phone" placeholder="309-..." />
               </label>
-              <button className="button button-primary" type="submit">
+              <button className="button button-primary" type="submit" disabled={!hasAvailableClerkUsers}>
                 Add Crew Member
               </button>
             </form>
             <p className="admin-help">
-              Crew members need a Clerk account first. You can copy their `user_...` ID from Clerk after they sign up.
+              Crew members need to sign up first. After they have a Clerk account, they appear in this dropdown.
             </p>
           </section>
         </div>

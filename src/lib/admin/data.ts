@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { clerkClient, currentUser } from "@clerk/nextjs/server";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 export type AdminCrewProfile = {
@@ -102,8 +102,16 @@ export type AdminContact = {
   phone: string | null;
 };
 
+export type AdminClerkUser = {
+  id: string;
+  label: string;
+  email: string;
+  name: string;
+};
+
 export type AdminDashboardData = {
   adminProfile: AdminCrewProfile;
+  availableClerkUsers: AdminClerkUser[];
   crew: AdminCrewProfile[];
   gigs: AdminGig[];
   assignments: AdminAssignment[];
@@ -119,6 +127,31 @@ function displayNameFromClerkUser(user: Awaited<ReturnType<typeof currentUser>>)
 
   const fullName = [user.firstName, user.lastName].filter(Boolean).join(" ").trim();
   return fullName || user.emailAddresses[0]?.emailAddress || "Portal Admin";
+}
+
+async function getAvailableClerkUsers(existingProfiles: AdminCrewProfile[]): Promise<AdminClerkUser[]> {
+  if (!process.env.CLERK_SECRET_KEY) {
+    return [];
+  }
+
+  const existingUserIds = new Set(existingProfiles.map((profile) => profile.clerk_user_id));
+  const client = await clerkClient();
+  const response = await client.users.getUserList({ limit: 100 });
+
+  return response.data
+    .filter((user) => !existingUserIds.has(user.id))
+    .map((user) => {
+      const email = user.emailAddresses[0]?.emailAddress ?? "";
+      const name = [user.firstName, user.lastName].filter(Boolean).join(" ").trim();
+      const fallbackName = name || email || user.id;
+
+      return {
+        id: user.id,
+        email,
+        name: fallbackName,
+        label: `${fallbackName}${email && email !== fallbackName ? ` · ${email}` : ""}`
+      };
+    });
 }
 
 export async function getAdminDashboardData(clerkUserId: string): Promise<AdminDashboardData | null> {
@@ -218,8 +251,11 @@ export async function getAdminDashboardData(clerkUserId: string): Promise<AdminD
     supabase.from("gig_contacts").select("id, gig_id, name, role, email, phone").order("created_at", { ascending: false })
   ]);
 
+  const availableClerkUsers = await getAvailableClerkUsers(crew ?? []);
+
   return {
     adminProfile,
+    availableClerkUsers,
     crew: crew ?? [],
     gigs: gigs ?? [],
     assignments: normalizeAssignments(assignments as AssignmentRow[] | null),

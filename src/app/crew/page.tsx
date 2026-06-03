@@ -2,6 +2,7 @@ import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { getCrewDashboard } from "@/lib/crew-data";
+import { PrintBriefButton } from "./PrintBriefButton";
 
 export const dynamic = "force-dynamic";
 
@@ -49,6 +50,7 @@ export default async function CrewPage() {
             </p>
           </div>
           <div className="crew-actions">
+            <PrintBriefButton />
             <a className="button button-secondary" href={`mailto:?subject=${encodeURIComponent(dashboard.gig.title)}`}>
               Email Brief
             </a>
