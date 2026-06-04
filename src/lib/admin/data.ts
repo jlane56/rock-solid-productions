@@ -7,6 +7,7 @@ export type AdminCrewProfile = {
   full_name: string;
   default_role: string;
   phone: string | null;
+  email?: string;
   created_at: string;
 };
 
@@ -29,6 +30,7 @@ export type AdminGig = {
 export type AdminAssignment = {
   id: string;
   gig_id: string;
+  crew_profile_id: string;
   role: string;
   details: string;
   crew_profiles: {
@@ -43,6 +45,7 @@ export type AdminAssignment = {
 type AssignmentRow = {
   id: string;
   gig_id: string;
+  crew_profile_id: string;
   role: string;
   details: string;
   crew_profiles:
@@ -73,6 +76,7 @@ function normalizeAssignments(assignments: AssignmentRow[] | null): AdminAssignm
   return (assignments ?? []).map((assignment) => ({
     id: assignment.id,
     gig_id: assignment.gig_id,
+    crew_profile_id: assignment.crew_profile_id,
     role: assignment.role,
     details: assignment.details,
     crew_profiles: firstRelated(assignment.crew_profiles),
@@ -247,7 +251,7 @@ export async function getAdminDashboardData(clerkUserId: string): Promise<AdminD
   const [{ data: assignments }, { data: timelineItems }, { data: documents }, { data: contacts }] = await Promise.all([
     supabase
       .from("crew_assignments")
-      .select("id, gig_id, role, details, crew_profiles(full_name, default_role), production_gigs(title)")
+      .select("id, gig_id, crew_profile_id, role, details, crew_profiles(full_name, default_role), production_gigs(title)")
       .order("created_at", { ascending: false }),
     supabase.from("gig_timeline_items").select("id, gig_id, sort_order, time_label, label").order("sort_order"),
     supabase.from("gig_documents").select("id, gig_id, label, kind, url").order("created_at", { ascending: false }),

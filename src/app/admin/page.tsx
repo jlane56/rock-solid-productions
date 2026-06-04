@@ -14,6 +14,9 @@ import { ClerkUserFields } from "./ClerkUserFields";
 
 export const dynamic = "force-dynamic";
 
+const eventTypes = ["Concert", "Wedding", "Fundraiser", "Corporate Event", "Other"];
+const assignmentRoles = ["Audio Engineer", "Lighting Designer", "Assistant"];
+
 function dateTimeDefault(hoursFromNow: number) {
   const date = new Date(Date.now() + hoursFromNow * 60 * 60 * 1000);
   date.setMinutes(0, 0, 0);
@@ -146,8 +149,14 @@ export default async function AdminPage() {
               <input name="title" placeholder="Dunlap Summer Kickoff" required />
             </label>
             <label>
-              Service Type
-              <input name="service_type" defaultValue="Live Production" required />
+              Event Type
+              <select name="service_type" defaultValue="Concert" required>
+                {eventTypes.map((eventType) => (
+                  <option value={eventType} key={eventType}>
+                    {eventType}
+                  </option>
+                ))}
+              </select>
             </label>
             <label>
               Venue
@@ -288,31 +297,49 @@ function EventCard({
       <details className="event-builder">
         <summary>Fill out team details</summary>
         <div className="event-builder__grid">
-          <form action={createAssignment} className="admin-form compact-admin-form">
-            <input name="gig_id" type="hidden" value={gig.id} />
-            <h4>Assign Crew</h4>
-            <label>
-              Crew Member
-              <select name="crew_profile_id" required disabled={!hasCrew}>
-                {adminData.crew.map((profile) => (
-                  <option value={profile.id} key={profile.id}>
-                    {profile.full_name} · {profile.default_role}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Role
-              <input name="role" placeholder="Stage Audio" required />
-            </label>
-            <label>
-              Details
-              <textarea name="details" placeholder="What they need to own for this event..." rows={3} required />
-            </label>
-            <button className="button button-primary" type="submit" disabled={!hasCrew}>
-              Save
-            </button>
-          </form>
+          <div className="role-assignment-panel">
+            <h4>Role Assignments</h4>
+            {assignmentRoles.map((role) => {
+              const currentAssignment = assignments.find((assignment) => assignment.role === role);
+
+              return (
+                <form action={createAssignment} className="admin-form role-assignment-form" key={role}>
+                  <input name="gig_id" type="hidden" value={gig.id} />
+                  <input name="role" type="hidden" value={role} />
+                  <label>
+                    {role}
+                    <select
+                      name="crew_profile_id"
+                      required
+                      disabled={!hasCrew}
+                      defaultValue={currentAssignment?.crew_profile_id ?? ""}
+                    >
+                      <option value="" disabled>
+                        Choose employee
+                      </option>
+                      {adminData.crew.map((profile) => (
+                        <option value={profile.id} key={profile.id}>
+                          {profile.full_name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label>
+                    Notes
+                    <textarea
+                      name="details"
+                      placeholder={`Anything the ${role.toLowerCase()} needs to know...`}
+                      rows={2}
+                      defaultValue={currentAssignment?.details ?? ""}
+                    />
+                  </label>
+                  <button className="button button-primary" type="submit" disabled={!hasCrew}>
+                    Save and notify
+                  </button>
+                </form>
+              );
+            })}
+          </div>
 
           <form action={createTimelineItem} className="admin-form compact-admin-form">
             <input name="gig_id" type="hidden" value={gig.id} />

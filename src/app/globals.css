@@ -810,8 +810,45 @@ a {
 .event-builder__grid {
   display: grid;
   gap: 0.85rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(280px, 1.35fr) repeat(3, minmax(0, 1fr));
   margin-top: 1rem;
+}
+
+.role-assignment-panel {
+  align-content: start;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+}
+
+.admin-app .role-assignment-panel {
+  background: #f8f4ed;
+  border-color: #e2d7c7;
+}
+
+.role-assignment-panel h4 {
+  color: var(--white);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.admin-app .role-assignment-panel h4 {
+  color: #171717;
+}
+
+.role-assignment-form {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 0.65rem;
+  padding-top: 0.85rem;
+}
+
+.admin-app .role-assignment-form {
+  border-top-color: #e5ded4;
 }
 
 .compact-admin-form {
