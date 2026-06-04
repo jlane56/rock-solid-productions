@@ -431,6 +431,15 @@ a {
   width: 100%;
 }
 
+.admin-workspace {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.admin-hero {
+  margin-bottom: 0.35rem;
+}
+
 .admin-stat-grid {
   margin: 1.5rem 0 1rem;
 }
@@ -499,6 +508,189 @@ a {
   display: grid;
   gap: 0.75rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-form__wide {
+  grid-column: 1 / -1;
+}
+
+.admin-form__button {
+  justify-self: start;
+}
+
+.event-list-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.event-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.event-list--past {
+  opacity: 0.78;
+}
+
+.event-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.event-card__summary {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto 1fr;
+}
+
+.event-card__summary h3 {
+  color: var(--white);
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  letter-spacing: 0;
+  margin: 0.1rem 0 0.25rem;
+}
+
+.event-card__summary p:not(.eyebrow) {
+  color: var(--soft);
+  margin: 0;
+}
+
+.event-date {
+  align-items: center;
+  aspect-ratio: 1;
+  background: #101010;
+  border: 1px solid rgba(245, 166, 35, 0.28);
+  border-radius: 8px;
+  display: grid;
+  justify-items: center;
+  min-width: 76px;
+  padding: 0.7rem;
+}
+
+.event-date span {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.event-date strong {
+  color: var(--white);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.event-card__meta {
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+}
+
+.event-card__meta span {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  color: var(--soft);
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+}
+
+.empty-event-state {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  color: var(--soft);
+  display: grid;
+  gap: 0.25rem;
+  padding: 1.2rem;
+}
+
+.empty-event-state strong {
+  color: var(--white);
+}
+
+.create-event-panel {
+  scroll-margin-top: 1rem;
+}
+
+.event-create-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.crew-create-form {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.event-builder {
+  margin-top: 1rem;
+}
+
+.event-builder summary {
+  border-top: 1px solid var(--line);
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  list-style-position: outside;
+  padding-top: 1rem;
+  text-transform: uppercase;
+}
+
+.event-builder__grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.compact-admin-form {
+  align-content: start;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.compact-admin-form h4,
+.event-builder__preview h4 {
+  color: var(--white);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.event-builder__preview {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.event-builder__preview div {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.event-builder__preview p {
+  color: var(--soft);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.muted-mini-list {
+  opacity: 0.68;
 }
 
 .admin-help {
@@ -644,6 +836,11 @@ a {
   .admin-lists {
     grid-template-columns: 1fr;
   }
+
+  .event-builder__grid,
+  .event-builder__preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -679,5 +876,25 @@ a {
 
   .admin-form__split {
     grid-template-columns: 1fr;
+  }
+
+  .event-create-form,
+  .crew-create-form,
+  .event-builder__grid,
+  .event-builder__preview {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card__summary {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .event-date {
+    aspect-ratio: auto;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    min-width: 0;
+    width: fit-content;
   }
 }
