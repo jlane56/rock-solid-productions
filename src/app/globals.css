@@ -432,66 +432,68 @@ a {
 }
 
 .admin-app {
-  background: #f4f2ed;
-  color: #171717;
+  background:
+    radial-gradient(circle at 82% 10%, rgba(245, 166, 35, 0.5), transparent 28rem),
+    linear-gradient(135deg, #070707 0%, #101010 48%, #3a2507 78%, #d78a13 150%);
+  color: var(--white);
 }
 
 .admin-app .crew-rail {
-  background: #ffffff;
-  border-right: 1px solid #ddd7ce;
-  box-shadow: 8px 0 30px rgba(32, 28, 20, 0.06);
+  background: rgba(9, 9, 9, 0.9);
+  border-right: 1px solid rgba(245, 166, 35, 0.18);
+  box-shadow: 8px 0 34px rgba(0, 0, 0, 0.24);
 }
 
 .admin-app .brand-link {
-  color: #a85f00;
+  color: var(--accent);
 }
 
 .admin-app .crew-rail nav a {
   border-radius: 8px;
-  color: #625b51;
+  color: rgba(255, 255, 255, 0.66);
 }
 
 .admin-app .crew-rail nav a:hover,
 .admin-app .crew-rail nav a.active {
-  background: #fff4df;
-  border-color: #e9b861;
-  color: #171717;
+  background: rgba(245, 166, 35, 0.12);
+  border-color: rgba(245, 166, 35, 0.42);
+  color: var(--white);
 }
 
 .admin-app .crew-profile {
-  border-top-color: #e5ded4;
+  border-top-color: rgba(245, 166, 35, 0.18);
 }
 
 .admin-app .crew-profile strong {
-  color: #171717;
+  color: var(--white);
 }
 
 .admin-app .crew-profile span {
-  color: #756d63;
+  color: rgba(255, 255, 255, 0.52);
 }
 
 .admin-app .crew-header {
-  background: #ffffff;
-  border: 1px solid #ddd7ce;
+  background: rgba(18, 18, 18, 0.86);
+  border: 1px solid rgba(245, 166, 35, 0.24);
   border-radius: 8px;
-  box-shadow: 0 18px 48px rgba(32, 28, 20, 0.08);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.28);
   padding: 1.35rem;
 }
 
 .admin-app .crew-header h1,
 .admin-app .section-heading h2,
 .admin-app .panel h2 {
-  color: #171717;
+  color: var(--white);
 }
 
 .admin-app .crew-header p:not(.eyebrow),
 .admin-app .panel p,
 .admin-app .notice span {
-  color: #5f584e;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .admin-app .eyebrow {
-  color: #a85f00;
+  color: var(--accent);
 }
 
 .admin-app .button-primary {
@@ -501,18 +503,18 @@ a {
 }
 
 .admin-app .button-secondary {
-  background: #ffffff;
-  border-color: #cfc6b8;
-  color: #2b2925;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: var(--white);
 }
 
 .admin-app .panel,
 .admin-app .event-card,
 .admin-app .empty-event-state,
 .admin-app .stat-grid div {
-  background: #ffffff;
-  border-color: #ddd7ce;
-  box-shadow: 0 14px 36px rgba(32, 28, 20, 0.07);
+  background: rgba(18, 18, 18, 0.88);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.26);
 }
 
 .admin-app .admin-panel {
@@ -556,7 +558,7 @@ a {
 }
 
 .admin-app .admin-form label {
-  color: #675d50;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .admin-form input,
@@ -578,14 +580,14 @@ a {
 .admin-app .admin-form input,
 .admin-app .admin-form select,
 .admin-app .admin-form textarea {
-  background: #fbfaf7;
-  border-color: #cdc3b5;
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.36);
   color: #171717;
 }
 
 .admin-app .admin-form input::placeholder,
 .admin-app .admin-form textarea::placeholder {
-  color: #9a9287;
+  color: #6e665d;
 }
 
 .admin-form textarea {
@@ -608,7 +610,7 @@ a {
 .admin-app .admin-form textarea:focus {
   background: #ffffff;
   border-color: #c77600;
-  box-shadow: 0 0 0 3px rgba(199, 118, 0, 0.14);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.24);
 }
 
 .admin-form button:disabled,
@@ -671,7 +673,7 @@ a {
 }
 
 .admin-app .event-card__summary h3 {
-  color: #171717;
+  color: var(--white);
 }
 
 .event-card__summary p:not(.eyebrow) {
@@ -680,7 +682,7 @@ a {
 }
 
 .admin-app .event-card__summary p:not(.eyebrow) {
-  color: #5f584e;
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .event-date {
@@ -696,8 +698,8 @@ a {
 }
 
 .admin-app .event-date {
-  background: #fff4df;
-  border-color: #e5a83b;
+  background: rgba(245, 166, 35, 0.14);
+  border-color: rgba(245, 166, 35, 0.42);
 }
 
 .event-date span {
@@ -709,7 +711,7 @@ a {
 }
 
 .admin-app .event-date span {
-  color: #9b5a00;
+  color: var(--accent);
 }
 
 .event-date strong {
@@ -719,7 +721,7 @@ a {
 }
 
 .admin-app .event-date strong {
-  color: #171717;
+  color: var(--white);
 }
 
 .event-card__meta {
@@ -732,7 +734,7 @@ a {
 }
 
 .admin-app .event-card__meta {
-  border-top-color: #e5ded4;
+  border-top-color: rgba(255, 255, 255, 0.12);
 }
 
 .event-card__meta span {
@@ -745,9 +747,9 @@ a {
 }
 
 .admin-app .event-card__meta span {
-  background: #f8f4ed;
-  border-color: #e5ded4;
-  color: #5f584e;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .empty-event-state {
@@ -761,9 +763,9 @@ a {
 }
 
 .admin-app .empty-event-state {
-  background: #fffaf0;
-  border-color: #e2c486;
-  color: #625b51;
+  background: rgba(18, 18, 18, 0.76);
+  border-color: rgba(245, 166, 35, 0.34);
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .empty-event-state strong {
@@ -771,7 +773,7 @@ a {
 }
 
 .admin-app .empty-event-state strong {
-  color: #171717;
+  color: var(--white);
 }
 
 .create-event-panel {
@@ -803,8 +805,8 @@ a {
 }
 
 .admin-app .event-builder summary {
-  border-top-color: #e5ded4;
-  color: #9b5a00;
+  border-top-color: rgba(255, 255, 255, 0.12);
+  color: var(--accent);
 }
 
 .event-builder__grid {
@@ -825,8 +827,8 @@ a {
 }
 
 .admin-app .role-assignment-panel {
-  background: #f8f4ed;
-  border-color: #e2d7c7;
+  background: rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .role-assignment-panel h4 {
@@ -838,7 +840,7 @@ a {
 }
 
 .admin-app .role-assignment-panel h4 {
-  color: #171717;
+  color: var(--white);
 }
 
 .role-assignment-form {
@@ -848,7 +850,7 @@ a {
 }
 
 .admin-app .role-assignment-form {
-  border-top-color: #e5ded4;
+  border-top-color: rgba(255, 255, 255, 0.1);
 }
 
 .compact-admin-form {
@@ -860,8 +862,8 @@ a {
 }
 
 .admin-app .compact-admin-form {
-  background: #f8f4ed;
-  border-color: #e2d7c7;
+  background: rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .compact-admin-form h4,
@@ -875,7 +877,7 @@ a {
 
 .admin-app .compact-admin-form h4,
 .admin-app .event-builder__preview h4 {
-  color: #171717;
+  color: var(--white);
 }
 
 .event-builder__preview {
@@ -888,7 +890,7 @@ a {
 }
 
 .admin-app .event-builder__preview {
-  border-top-color: #e5ded4;
+  border-top-color: rgba(255, 255, 255, 0.12);
 }
 
 .event-builder__preview div {
@@ -904,7 +906,7 @@ a {
 }
 
 .admin-app .event-builder__preview p {
-  color: #5f584e;
+  color: rgba(255, 255, 255, 0.66);
 }
 
 .muted-mini-list {
@@ -921,8 +923,8 @@ a {
 }
 
 .admin-app .admin-help {
-  border-top-color: #e5ded4;
-  color: #5f584e;
+  border-top-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .admin-table-panel {
