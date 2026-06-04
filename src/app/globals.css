@@ -431,6 +431,94 @@ a {
   width: 100%;
 }
 
+.admin-app {
+  background: #f4f2ed;
+  color: #171717;
+}
+
+.admin-app .crew-rail {
+  background: #ffffff;
+  border-right: 1px solid #ddd7ce;
+  box-shadow: 8px 0 30px rgba(32, 28, 20, 0.06);
+}
+
+.admin-app .brand-link {
+  color: #a85f00;
+}
+
+.admin-app .crew-rail nav a {
+  border-radius: 8px;
+  color: #625b51;
+}
+
+.admin-app .crew-rail nav a:hover,
+.admin-app .crew-rail nav a.active {
+  background: #fff4df;
+  border-color: #e9b861;
+  color: #171717;
+}
+
+.admin-app .crew-profile {
+  border-top-color: #e5ded4;
+}
+
+.admin-app .crew-profile strong {
+  color: #171717;
+}
+
+.admin-app .crew-profile span {
+  color: #756d63;
+}
+
+.admin-app .crew-header {
+  background: #ffffff;
+  border: 1px solid #ddd7ce;
+  border-radius: 8px;
+  box-shadow: 0 18px 48px rgba(32, 28, 20, 0.08);
+  padding: 1.35rem;
+}
+
+.admin-app .crew-header h1,
+.admin-app .section-heading h2,
+.admin-app .panel h2 {
+  color: #171717;
+}
+
+.admin-app .crew-header p:not(.eyebrow),
+.admin-app .panel p,
+.admin-app .notice span {
+  color: #5f584e;
+}
+
+.admin-app .eyebrow {
+  color: #a85f00;
+}
+
+.admin-app .button-primary {
+  background: #c77600;
+  border-color: #c77600;
+  color: #ffffff;
+}
+
+.admin-app .button-secondary {
+  background: #ffffff;
+  border-color: #cfc6b8;
+  color: #2b2925;
+}
+
+.admin-app .panel,
+.admin-app .event-card,
+.admin-app .empty-event-state,
+.admin-app .stat-grid div {
+  background: #ffffff;
+  border-color: #ddd7ce;
+  box-shadow: 0 14px 36px rgba(32, 28, 20, 0.07);
+}
+
+.admin-app .admin-panel {
+  border-top: 4px solid #d58a13;
+}
+
 .admin-workspace {
   display: grid;
   gap: 1.35rem;
@@ -467,6 +555,10 @@ a {
   text-transform: uppercase;
 }
 
+.admin-app .admin-form label {
+  color: #675d50;
+}
+
 .admin-form input,
 .admin-form select,
 .admin-form textarea {
@@ -483,6 +575,19 @@ a {
   width: 100%;
 }
 
+.admin-app .admin-form input,
+.admin-app .admin-form select,
+.admin-app .admin-form textarea {
+  background: #fbfaf7;
+  border-color: #cdc3b5;
+  color: #171717;
+}
+
+.admin-app .admin-form input::placeholder,
+.admin-app .admin-form textarea::placeholder {
+  color: #9a9287;
+}
+
 .admin-form textarea {
   line-height: 1.5;
   resize: vertical;
@@ -496,6 +601,14 @@ a {
 .admin-form select:focus,
 .admin-form textarea:focus {
   border-color: rgba(245, 166, 35, 0.58);
+}
+
+.admin-app .admin-form input:focus,
+.admin-app .admin-form select:focus,
+.admin-app .admin-form textarea:focus {
+  background: #ffffff;
+  border-color: #c77600;
+  box-shadow: 0 0 0 3px rgba(199, 118, 0, 0.14);
 }
 
 .admin-form button:disabled,
@@ -532,6 +645,10 @@ a {
   opacity: 0.78;
 }
 
+.admin-app .event-list--past {
+  opacity: 1;
+}
+
 .event-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
   border: 1px solid var(--line);
@@ -553,9 +670,17 @@ a {
   margin: 0.1rem 0 0.25rem;
 }
 
+.admin-app .event-card__summary h3 {
+  color: #171717;
+}
+
 .event-card__summary p:not(.eyebrow) {
   color: var(--soft);
   margin: 0;
+}
+
+.admin-app .event-card__summary p:not(.eyebrow) {
+  color: #5f584e;
 }
 
 .event-date {
@@ -570,6 +695,11 @@ a {
   padding: 0.7rem;
 }
 
+.admin-app .event-date {
+  background: #fff4df;
+  border-color: #e5a83b;
+}
+
 .event-date span {
   color: var(--accent);
   font-size: 0.72rem;
@@ -578,10 +708,18 @@ a {
   text-transform: uppercase;
 }
 
+.admin-app .event-date span {
+  color: #9b5a00;
+}
+
 .event-date strong {
   color: var(--white);
   font-size: 1.75rem;
   line-height: 1;
+}
+
+.admin-app .event-date strong {
+  color: #171717;
 }
 
 .event-card__meta {
@@ -593,6 +731,10 @@ a {
   padding-top: 0.9rem;
 }
 
+.admin-app .event-card__meta {
+  border-top-color: #e5ded4;
+}
+
 .event-card__meta span {
   background: rgba(255, 255, 255, 0.055);
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -600,6 +742,12 @@ a {
   color: var(--soft);
   font-size: 0.78rem;
   padding: 0.35rem 0.65rem;
+}
+
+.admin-app .event-card__meta span {
+  background: #f8f4ed;
+  border-color: #e5ded4;
+  color: #5f584e;
 }
 
 .empty-event-state {
@@ -612,8 +760,18 @@ a {
   padding: 1.2rem;
 }
 
+.admin-app .empty-event-state {
+  background: #fffaf0;
+  border-color: #e2c486;
+  color: #625b51;
+}
+
 .empty-event-state strong {
   color: var(--white);
+}
+
+.admin-app .empty-event-state strong {
+  color: #171717;
 }
 
 .create-event-panel {
@@ -644,6 +802,11 @@ a {
   text-transform: uppercase;
 }
 
+.admin-app .event-builder summary {
+  border-top-color: #e5ded4;
+  color: #9b5a00;
+}
+
 .event-builder__grid {
   display: grid;
   gap: 0.85rem;
@@ -659,6 +822,11 @@ a {
   padding: 1rem;
 }
 
+.admin-app .compact-admin-form {
+  background: #f8f4ed;
+  border-color: #e2d7c7;
+}
+
 .compact-admin-form h4,
 .event-builder__preview h4 {
   color: var(--white);
@@ -668,6 +836,11 @@ a {
   text-transform: uppercase;
 }
 
+.admin-app .compact-admin-form h4,
+.admin-app .event-builder__preview h4 {
+  color: #171717;
+}
+
 .event-builder__preview {
   border-top: 1px solid var(--line);
   display: grid;
@@ -675,6 +848,10 @@ a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 1rem;
   padding-top: 1rem;
+}
+
+.admin-app .event-builder__preview {
+  border-top-color: #e5ded4;
 }
 
 .event-builder__preview div {
@@ -689,6 +866,10 @@ a {
   margin: 0;
 }
 
+.admin-app .event-builder__preview p {
+  color: #5f584e;
+}
+
 .muted-mini-list {
   opacity: 0.68;
 }
@@ -700,6 +881,11 @@ a {
   line-height: 1.6;
   margin: 1rem 0 0;
   padding-top: 1rem;
+}
+
+.admin-app .admin-help {
+  border-top-color: #e5ded4;
+  color: #5f584e;
 }
 
 .admin-table-panel {
