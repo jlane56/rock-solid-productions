@@ -46,8 +46,8 @@ a {
 .eyebrow {
   color: var(--accent);
   font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   margin: 0 0 0.75rem;
   text-transform: uppercase;
 }
@@ -57,9 +57,9 @@ a {
   border: 1px solid transparent;
   display: inline-flex;
   font-size: 0.74rem;
-  font-weight: 800;
+  font-weight: 700;
   justify-content: center;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   min-height: 46px;
   padding: 0.85rem 1.25rem;
   text-transform: uppercase;
@@ -213,8 +213,8 @@ a {
   border: 1px solid transparent;
   color: rgba(255, 255, 255, 0.56);
   font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   padding: 0.9rem 1rem;
   text-transform: uppercase;
 }
@@ -243,7 +243,7 @@ a {
 .crew-profile span {
   color: var(--soft);
   font-size: 0.74rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -331,16 +331,17 @@ a {
   color: var(--soft);
   display: block;
   font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-weight: 650;
+  letter-spacing: 0.08em;
   margin-bottom: 0.25rem;
   text-transform: uppercase;
 }
 
 .stat-grid strong {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  letter-spacing: 0.03em;
+  font-family: var(--font-body);
+  font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+  font-weight: 650;
+  letter-spacing: 0;
 }
 
 .content-grid {
@@ -353,10 +354,11 @@ a {
 }
 
 .panel h2 {
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  letter-spacing: 0.03em;
-  line-height: 1;
+  font-family: var(--font-body);
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.15;
   margin: 0 0 0.8rem;
 }
 
@@ -386,7 +388,7 @@ a {
 
 .timeline time {
   color: var(--accent);
-  font-weight: 800;
+  font-weight: 650;
 }
 
 .timeline span {
@@ -407,7 +409,7 @@ a {
 
 .link-list a {
   color: rgba(255, 255, 255, 0.72);
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .link-list a:hover {
@@ -452,10 +454,11 @@ a {
 
 .crew-event-card h2 {
   color: var(--white);
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  letter-spacing: 0.03em;
-  line-height: 1;
+  font-family: var(--font-body);
+  font-size: clamp(1.45rem, 3vw, 2.1rem);
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.15;
   margin: 0 0 0.35rem;
 }
 
@@ -609,9 +612,9 @@ a {
   color: rgba(255, 255, 255, 0.46);
   display: grid;
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 650;
   gap: 0.45rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -725,7 +728,8 @@ a {
 
 .event-card__summary h3 {
   color: var(--white);
-  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  font-weight: 650;
   letter-spacing: 0;
   margin: 0.1rem 0 0.25rem;
 }
@@ -763,8 +767,8 @@ a {
 .event-date span {
   color: var(--accent);
   font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -774,7 +778,8 @@ a {
 
 .event-date strong {
   color: var(--white);
-  font-size: 1.75rem;
+  font-size: 1.55rem;
+  font-weight: 650;
   line-height: 1;
 }
 
@@ -832,7 +837,8 @@ a {
 .admin-assignment-roster strong {
   color: var(--white);
   font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-weight: 650;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -886,8 +892,8 @@ a {
   color: var(--accent);
   cursor: pointer;
   font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   list-style-position: outside;
   padding-top: 1rem;
   text-transform: uppercase;
@@ -923,7 +929,8 @@ a {
 .role-assignment-panel h4 {
   color: var(--white);
   font-size: 0.82rem;
-  letter-spacing: 0.1em;
+  font-weight: 650;
+  letter-spacing: 0.06em;
   margin: 0;
   text-transform: uppercase;
 }
@@ -959,7 +966,8 @@ a {
 .event-builder__preview h4 {
   color: var(--white);
   font-size: 0.82rem;
-  letter-spacing: 0.1em;
+  font-weight: 650;
+  letter-spacing: 0.06em;
   margin: 0;
   text-transform: uppercase;
 }
@@ -1029,7 +1037,8 @@ a {
 .admin-lists h3 {
   color: var(--accent);
   font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  font-weight: 650;
+  letter-spacing: 0.08em;
   margin: 0 0 0.75rem;
   text-transform: uppercase;
 }
