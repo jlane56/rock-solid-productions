@@ -426,6 +426,64 @@ a {
   font-size: 0.92rem;
 }
 
+.crew-event-dashboard {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.crew-event-card {
+  align-items: center;
+  background: rgba(24, 24, 24, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto 1fr;
+  padding: 1.1rem;
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+
+.crew-event-card:hover {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(245, 166, 35, 0.4);
+  transform: translateY(-1px);
+}
+
+.crew-event-card h2 {
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  margin: 0 0 0.35rem;
+}
+
+.crew-event-card p:not(.eyebrow) {
+  color: var(--muted);
+  margin: 0;
+}
+
+.crew-event-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.crew-event-card__meta span {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  color: var(--soft);
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+}
+
+.empty-crew-dashboard {
+  max-width: 760px;
+}
+
 .admin-app .crew-workspace {
   max-width: 1500px;
   width: 100%;
@@ -752,6 +810,37 @@ a {
   color: rgba(255, 255, 255, 0.68);
 }
 
+.admin-assignment-roster {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+}
+
+.admin-assignment-roster p {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0.75rem;
+}
+
+.admin-assignment-roster strong {
+  color: var(--white);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-assignment-roster span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.92rem;
+}
+
 .empty-event-state {
   background: rgba(255, 255, 255, 0.035);
   border: 1px dashed rgba(255, 255, 255, 0.18);
@@ -1063,7 +1152,8 @@ a {
   }
 
   .event-builder__grid,
-  .event-builder__preview {
+  .event-builder__preview,
+  .admin-assignment-roster {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1106,11 +1196,13 @@ a {
   .event-create-form,
   .crew-create-form,
   .event-builder__grid,
-  .event-builder__preview {
+  .event-builder__preview,
+  .admin-assignment-roster {
     grid-template-columns: 1fr;
   }
 
-  .event-card__summary {
+  .event-card__summary,
+  .crew-event-card {
     align-items: start;
     grid-template-columns: 1fr;
   }

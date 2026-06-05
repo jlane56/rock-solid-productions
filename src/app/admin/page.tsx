@@ -294,6 +294,21 @@ function EventCard({
         <span>{timelineItems.length} timeline items</span>
         <span>{documents.length} docs</span>
       </div>
+      <div className="admin-assignment-roster" aria-label={`Assigned crew for ${gig.title}`}>
+        {assignments.length ? (
+          assignments.map((assignment) => (
+            <p key={assignment.id}>
+              <strong>{assignment.role}</strong>
+              <span>{assignment.crew_profiles?.full_name ?? "Crew member"}</span>
+            </p>
+          ))
+        ) : (
+          <p>
+            <strong>No crew assigned</strong>
+            <span>Open team details to assign roles.</span>
+          </p>
+        )}
+      </div>
       <details className="event-builder">
         <summary>Fill out team details</summary>
         <div className="event-builder__grid">

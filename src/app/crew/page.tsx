@@ -1,10 +1,24 @@
 import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { getCrewDashboard } from "@/lib/crew-data";
-import { PrintBriefButton } from "./PrintBriefButton";
+import { getCrewEventsDashboard } from "@/lib/crew-data";
 
 export const dynamic = "force-dynamic";
+
+function formatEventDate(value: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }).format(new Date(value));
+}
+
+function formatEventTime(value: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "2-digit"
+  }).format(new Date(value));
+}
 
 export default async function CrewPage() {
   const clerkEnabled = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY);
@@ -14,7 +28,7 @@ export default async function CrewPage() {
     redirect("/sign-in");
   }
 
-  const dashboard = await getCrewDashboard(userId ?? "local-demo-user");
+  const dashboard = await getCrewEventsDashboard(userId ?? "local-demo-user");
 
   return (
     <main className="crew-app">
@@ -23,12 +37,9 @@ export default async function CrewPage() {
           RSP
         </a>
         <nav>
-          <a className="active" href="#overview">
-            Overview
+          <a className="active" href="/crew">
+            My Events
           </a>
-          <a href="#schedule">Schedule</a>
-          <a href="#documents">Documents</a>
-          <a href="#contacts">Contacts</a>
           <a href="/admin">Admin</a>
         </nav>
         <div className="crew-profile">
@@ -43,107 +54,41 @@ export default async function CrewPage() {
       <section className="crew-workspace">
         <header className="crew-header" id="overview">
           <div>
-            <p className="eyebrow">Next Assignment</p>
-            <h1>{dashboard.gig.title}</h1>
-            <p>
-              {dashboard.gig.crewCall} crew call · {dashboard.gig.venueName} · {dashboard.gig.venueAddress}
-            </p>
-          </div>
-          <div className="crew-actions">
-            <PrintBriefButton />
-            <a className="button button-secondary" href={`mailto:?subject=${encodeURIComponent(dashboard.gig.title)}`}>
-              Email Brief
-            </a>
-            <a className="button button-primary" href={`/api/calendar/${dashboard.gig.id}`}>
-              Add to Calendar
-            </a>
+            <p className="eyebrow">Crew Dashboard</p>
+            <h1>My Events</h1>
+            <p>Every active event you are assigned to, with the full brief one click away.</p>
           </div>
         </header>
 
-        <div className="notice">
-          <strong>Production note</strong>
-          <span>{dashboard.gig.note}</span>
-        </div>
-
-        <section className="stat-grid" aria-label="Event times">
-          <div>
-            <span>Call</span>
-            <strong>{dashboard.gig.crewCall}</strong>
-          </div>
-          <div>
-            <span>Doors</span>
-            <strong>{dashboard.gig.doors}</strong>
-          </div>
-          <div>
-            <span>Show</span>
-            <strong>{dashboard.gig.showStart}</strong>
-          </div>
-          <div>
-            <span>Strike</span>
-            <strong>{dashboard.gig.strike}</strong>
-          </div>
-        </section>
-
-        <div className="content-grid">
-          <article className="panel">
-            <p className="eyebrow">Your Role</p>
-            <h2>{dashboard.assignment.role}</h2>
-            <p>{dashboard.assignment.details}</p>
-          </article>
-          <article className="panel">
-            <p className="eyebrow">Service</p>
-            <h2>{dashboard.gig.serviceType}</h2>
-            <p>Everything the team needs is collected here instead of scattered across a Drive invite.</p>
-          </article>
-        </div>
-
-        <section className="panel" id="schedule">
-          <div className="section-heading">
-            <p className="eyebrow">Run of Show</p>
-            <h2>Timeline</h2>
-          </div>
-          <ol className="timeline">
-            {dashboard.timeline.map((item) => (
-              <li key={`${item.time}-${item.label}`}>
-                <time>{item.time}</time>
-                <span>{item.label}</span>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <div className="content-grid">
-          <section className="panel" id="documents">
-            <div className="section-heading">
-              <p className="eyebrow">Files</p>
-              <h2>Gig Documents</h2>
-            </div>
-            <div className="link-list">
-              {dashboard.documents.map((document) => (
-                <a href={document.url} key={document.label}>
-                  {document.label} · {document.kind}
-                </a>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel" id="contacts">
-            <div className="section-heading">
-              <p className="eyebrow">Contacts</p>
-              <h2>Key People</h2>
-            </div>
-            <div className="contact-list">
-              {dashboard.contacts.map((contact) => (
-                <div key={`${contact.role}-${contact.name}`}>
-                  <strong>{contact.name}</strong>
-                  <span>{contact.role}</span>
-                  {contact.phone ? <a href={`tel:${contact.phone}`}>{contact.phone}</a> : null}
-                  {contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : null}
+        <section className="crew-event-dashboard" aria-label="Assigned events">
+          {dashboard.events.length ? (
+            dashboard.events.map((event) => (
+              <a className="crew-event-card" href={`/crew/${event.id}`} key={event.id}>
+                <div className="event-date">
+                  <span>{formatEventDate(event.startsAt).split(" ")[0]}</span>
+                  <strong>{formatEventDate(event.startsAt).split(" ")[1]?.replace(",", "")}</strong>
                 </div>
-              ))}
-            </div>
-          </section>
-        </div>
+                <div>
+                  <p className="eyebrow">{event.serviceType}</p>
+                  <h2>{event.title}</h2>
+                  <p>
+                    {event.venueName} · {formatEventTime(event.startsAt)}-{formatEventTime(event.endsAt)}
+                  </p>
+                  <div className="crew-event-card__meta">
+                    <span>{event.role}</span>
+                    <span>Crew call: {event.crewCall}</span>
+                  </div>
+                </div>
+              </a>
+            ))
+          ) : (
+            <section className="panel empty-crew-dashboard">
+              <p className="eyebrow">No Active Events</p>
+              <h2>You are not assigned to any upcoming events yet.</h2>
+              <p>Once an admin assigns you to an active event, it will show up here.</p>
+            </section>
+          )}
+        </section>
       </section>
     </main>
   );
